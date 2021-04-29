@@ -43,10 +43,14 @@ namespace SchoolManagement1
                 Console.WriteLine();
                 Console.WriteLine("Please input name: ");
                 String name = Console.ReadLine();
-                Console.WriteLine("Please input date of birth: (MM/DD/YYYY) ");
-                String dob = Console.ReadLine();
-                if (Check.ValidateDob(dob) == true && Check.DateOfBirthString(dob) == true) // Check if the date is valid and if the age is betwwen 18 and 100
+                String dob = "";
+                do
                 {
+                    Console.WriteLine("Please input date of birth: (MM/DD/YYYY) ");
+                    dob = Console.ReadLine();
+                }
+                while (Check.ValidateDob(dob) == false || Check.DateOfBirthString(dob) == false); // Check if the date is valid and if the age is betwwen 18 and 100
+                
                     Console.WriteLine("Please input Email: ");
                     String email = Console.ReadLine();
                     Console.WriteLine("Please input Address: ");
@@ -54,7 +58,7 @@ namespace SchoolManagement1
                     Console.WriteLine("Please input batch: ");
                     int batch = int.Parse(Console.ReadLine());
                     list.Add(new Student(id, name, dob, email, address, batch));
-                }
+                
             }
         }
         public override void Update()
