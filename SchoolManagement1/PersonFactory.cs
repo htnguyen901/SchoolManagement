@@ -8,5 +8,6 @@ namespace SchoolManagement1
 {
     class PersonFactory
     {
+        //code here (not yet implented)
     }
 }
