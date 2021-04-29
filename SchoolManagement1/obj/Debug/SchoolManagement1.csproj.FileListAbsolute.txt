@@ -1,0 +1,7 @@
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.csproj.CoreCompileInputs.cache
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.exe.config
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.exe
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.pdb
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.exe
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.pdb
+C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.csprojAssemblyReference.cache
