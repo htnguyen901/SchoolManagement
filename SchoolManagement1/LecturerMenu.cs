@@ -27,7 +27,7 @@ namespace SchoolManagement1
                 Console.WriteLine("3. Delete " + type);
                 Console.WriteLine("4. Search " + type);
                 Console.WriteLine("5. Search " + type + " by name");
-                Console.WriteLine("6. View all" + type);
+                Console.WriteLine("6. View all " + type);
                 Console.WriteLine("7. Back to main menu");
                 Console.WriteLine("---------------------");
                 Console.Write("Choose function from 1 to 7:");

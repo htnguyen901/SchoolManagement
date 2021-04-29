@@ -14,49 +14,30 @@ namespace SchoolManagement1
         public StudentManage()
         {
             list = new List<Student>();
-            list.Add(new Student("GC200117", "Nguyen Thi Ngoc Ha", "08/22/1997", "hanguyen@gmail.com", "123 Empire St.", 8));
-            list.Add(new Student("GT123456", "Nguyen Quang Hieu", "01/17/2000", "hieunguyen@gmail.com", "900 Empire St.", 10));
+            list.Add(new Student("GC200117", "Ha Nguyen", "08/22/1997", "hanguyen@gmail.com", "123 Empire St.", 8));
+            list.Add(new Student("GT123456", "Hieu Nguyen", "01/17/2000", "hieunguyen@gmail.com", "900 Empire St.", 10));
         }
 
         public override void Add()
         {
             String dep = "";
+            int idDigit = 5;
             while (dep != "GT" && dep != "GC")
             {
                 Console.WriteLine("Which department is the Student from? (GT or GC)");
                 dep = Console.ReadLine();
             }
+
             String idNumeric = "";
-            ConsoleKeyInfo key;
             Console.Write("Please input ID: " + dep);
-            do
-            {
-                key = Console.ReadKey(true);
-                if (key.Key != ConsoleKey.Backspace)
-                {
-                    double val = 0;
-                    bool _x = double.TryParse(key.KeyChar.ToString(), out val);
-                    if (_x)
-                    {
-                        idNumeric += key.KeyChar;
-                        Console.Write(key.KeyChar);
-                    }
-                }
-                else
-                {
-                    if (key.Key == ConsoleKey.Backspace && idNumeric.Length > 0)
-                    {
-                        idNumeric = idNumeric.Substring(0, (idNumeric.Length - 1));
-                        Console.Write("\b \b");
-                    }
-                }
-            } while (key.Key != ConsoleKey.Enter);
+            idNumeric = Check.CheckIdNumMaxDigit(idNumeric, idDigit);
             String id = dep + idNumeric;
             if (list.Exists(x => x.Id == id))
             {
                 Console.WriteLine();
                 Console.WriteLine("{0} already exists in the database. Hit Enter to back to Main Menu", id);
             }
+
             else
             {
                 Console.WriteLine();
@@ -64,13 +45,16 @@ namespace SchoolManagement1
                 String name = Console.ReadLine();
                 Console.WriteLine("Please input date of birth: (MM/DD/YYYY) ");
                 String dob = Console.ReadLine();
-                Console.WriteLine("Please input Email: ");
-                String email = Console.ReadLine();
-                Console.WriteLine("Please input Address: ");
-                String address = Console.ReadLine();
-                Console.WriteLine("Please input batch: ");
-                int batch = int.Parse(Console.ReadLine());
-                list.Add(new Student(id, name, dob, email, address, batch));
+                if (Check.ValidateDob(dob) == true && Check.DateOfBirthString(dob) == true) // Check if the date is valid and if the age is betwwen 18 and 100
+                {
+                    Console.WriteLine("Please input Email: ");
+                    String email = Console.ReadLine();
+                    Console.WriteLine("Please input Address: ");
+                    String address = Console.ReadLine();
+                    Console.WriteLine("Please input batch: ");
+                    int batch = int.Parse(Console.ReadLine());
+                    list.Add(new Student(id, name, dob, email, address, batch));
+                }
             }
         }
         public override void Update()
@@ -90,7 +74,10 @@ namespace SchoolManagement1
             {
                 Console.WriteLine("Please input new " + command);
                 newInfo = Console.ReadLine();
-                list.First(s => s.Id == id).DoB = newInfo;
+                if (Check.ValidateDob(newInfo) == true && Check.DateOfBirthString(newInfo) == true)
+                {
+                    list.First(s => s.Id == id).DoB = newInfo;
+                }
             }
             else if (command == "Address")
             {
@@ -111,7 +98,7 @@ namespace SchoolManagement1
                 list.First(s => s.Id == id).Batch = Convert.ToInt32(newInfo);
             }
             else { Console.WriteLine("Invalid Request!!"); }
-            Console.WriteLine("Update information:");
+            Console.WriteLine("Updated information:");
             foreach (Student s in list)
             {
                 if (s.Id == id)
@@ -150,6 +137,7 @@ namespace SchoolManagement1
         }
         public override void Search()
         {
+            int check = 0;
             Console.WriteLine("Please input Student ID to search");
             String id = Console.ReadLine();
             foreach (Student s in list)
@@ -157,7 +145,13 @@ namespace SchoolManagement1
                 if (s.Id == id)
                 {
                     Console.WriteLine(s.toString());
+                    check = 1;
+                    break;
                 }
+            }
+            if (check == 0)
+            {
+                Console.WriteLine("Student not found!");
             }
         }
         public override void View()

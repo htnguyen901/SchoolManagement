@@ -17,7 +17,7 @@ namespace SchoolManagement1
             {
                 return new StudentMenu();
             }
-            if (person.Equals("Lecturers"))
+            if (person =="Lecturers")
             {
                 return new LecturerMenu();
             }

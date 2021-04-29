@@ -5,3 +5,10 @@ C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\bin\Debug\School
 C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.exe
 C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.pdb
 C:\Users\hangu\source\repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.csprojAssemblyReference.cache
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.exe.config
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.exe
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\bin\Debug\SchoolManagement1.pdb
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.csprojAssemblyReference.cache
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.csproj.CoreCompileInputs.cache
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.exe
+C:\Users\Ha Nguyen\Source\Repos\SchoolManagement1\SchoolManagement1\obj\Debug\SchoolManagement1.pdb

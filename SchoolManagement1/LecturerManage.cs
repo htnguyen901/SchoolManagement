@@ -20,54 +20,25 @@ namespace SchoolManagement1
 
         public override void Add()
         {
-            //String dep = "";
-            //while (dep != "GT" && dep != "GC")
-            //{
-            //    Console.WriteLine("Which department is the Student from? (GT or GC)");
-            //    dep = Console.ReadLine();
-            //}
             String idNumeric = "";
-            ConsoleKeyInfo key;
             Console.Write("Please input ID: ");
-            do
-            {
-                key = Console.ReadKey(true);
-                if (key.Key != ConsoleKey.Backspace)
-                {
-                    double val = 0;
-                    bool _x = double.TryParse(key.KeyChar.ToString(), out val);
-                    if (_x)
-                    {
-                        if (idNumeric.Length < 8)
-                        {
-                            idNumeric += key.KeyChar;
-                            Console.Write(key.KeyChar);
-                        }
-                        
-                    }
-                }
-                else
-                {
-                    if (key.Key == ConsoleKey.Backspace && idNumeric.Length > 0)
-                    {
-                        idNumeric = idNumeric.Substring(0, (idNumeric.Length - 1));
-                        Console.Write("\b \b");
-                    }
-                }
-            } while (key.Key != ConsoleKey.Enter);
+            idNumeric = Check.CheckIdNumMaxDigit(idNumeric, 8);
             String id = idNumeric;
             Console.WriteLine();
             Console.WriteLine("Please input name: ");
             String name = Console.ReadLine();
             Console.WriteLine("Please input date of birth: ");
             String dob = Console.ReadLine();
-            Console.WriteLine("Please input Email: ");
-            String email = Console.ReadLine();
-            Console.WriteLine("Please input Address: ");
-            String address = Console.ReadLine();
-            Console.WriteLine("Please input Department: ");
-            String dept = Console.ReadLine();
-            list.Add(new Lecturer(id, name, dob, email, address, dept));
+            if (Check.ValidateDob(dob) == true && Check.DateOfBirthString(dob) == true)
+            {
+                Console.WriteLine("Please input Email: ");
+                String email = Console.ReadLine();
+                Console.WriteLine("Please input Address: ");
+                String address = Console.ReadLine();
+                Console.WriteLine("Please input Department: ");
+                String dept = Console.ReadLine();
+                list.Add(new Lecturer(id, name, dob, email, address, dept));
+            }
         }
         public override void Update()
         {
@@ -107,7 +78,7 @@ namespace SchoolManagement1
                 list.First(s => s.Id == id).Dept = newInfo;
             }
             else { Console.WriteLine("Invalid Request!!"); }
-            Console.WriteLine("Update information:");
+            Console.WriteLine("Updated information:");
             foreach (Lecturer l in list)
             {
                 if (l.Id == id)
@@ -151,12 +122,19 @@ namespace SchoolManagement1
         {
             Console.WriteLine("Please input student ID to search");
             String id = Console.ReadLine();
+            int check = 0;
             foreach (Lecturer l in list)
             {
                 if (l.Id == id)
                 {
                     Console.WriteLine(l.toString());
+                    check = 1;
+                    break;
                 }
+            }
+            if (check == 0)
+            {
+                Console.WriteLine("Student not found!");
             }
         }
         public override void View()
