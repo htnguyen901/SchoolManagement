@@ -14,8 +14,8 @@ namespace SchoolManagement1
         public StudentManage()
         {
             list = new List<Student>();
-            list.Add(new Student("GC200117", "Ha Nguyen", "08/22/1997", "hanguyen@gmail.com", "123 Empire St.", 8));
-            list.Add(new Student("GT123456", "Hieu Nguyen", "01/17/2000", "hieunguyen@gmail.com", "900 Empire St.", 10));
+            list.Add(new Student("GC20011", "Ha Nguyen", "08/22/1997", "hanguyen@gmail.com", "123 Empire St.", 8));
+            list.Add(new Student("GT12345", "Hieu Nguyen", "01/17/2000", "hieunguyen@gmail.com", "900 Empire St.", 10));
         }
 
         public override void Add()
